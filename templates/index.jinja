@@ -1,0 +1,41 @@
+<h1>{{ title }}</h1>
+<form action="/events" method ="post">
+    <label for="date"> Date </label>
+    <input type="date" name="date" id="date"/>
+    
+    <label for="name of event"> Name of event </label>
+    <input type="text" name="name of event" id="name of event"/>
+    
+    <label for="number of guests"> Number of guests </label>
+    <input type="text" name="number of guests" id="number of guests"/>
+    
+    <label for="room location"> Room location </label>
+    <input type="text" name="room location" id="room location"/>
+    
+    <label for="description"> Description </label>
+    <input type="text" name="description" id="description"/>
+
+    <label for="recurring"> Recurring </label>
+    <input type="checkbox" name="recurring" id="recurring"/>
+
+    <input type ="submit" value="Submit"/>
+
+</form>
+<ul>
+    {% for event in events %}
+        <li>
+        Date: {{ event.date }}<br>
+        Event name: {{ event.event_name }}<br>
+        Number of guests: {{ event.number_of_guests }}<br>
+        Room location: {{ event.room_location }}<br>
+        Description: {{ event.description }}<br>
+        {% if event.recurring %}
+            Recurring: <span>&#9989;</span>
+        {% else %}
+            Recurring: <span>&#10060;</span>
+        {% endif %}
+        </li>
+        <br>
+    {% endfor %}
+    
+</ul>
