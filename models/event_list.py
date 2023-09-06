@@ -8,3 +8,6 @@ events_list = [event1, event2]
 
 def add_new_event(event):
     events_list.append(event)
+
+def remove_event(index):
+    del events_list[index]
